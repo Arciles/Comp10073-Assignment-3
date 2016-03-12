@@ -19,7 +19,7 @@
 	domObjects.push(document.getElementById("projectThreeTitle"));
 	domObjects.push(document.getElementById("projectThreeText"));
 
-	/* Funtion that responsible creation of XMLHttp object*/
+	/* Function that responsible creation of XMLHttp object*/
 	function createXMLHttp() {
 		var request;
 		if(window.ActiveXObject){
@@ -46,6 +46,8 @@
 	var request = createXMLHttp();
 	request.open('GET', '\data.json', true);
 	request.send();
+	// This event listener listens state changes in the XMLHttp request object
+	// if the ready state is 4 which means object is ready to read, after that we inject our text into HTML
 	request.addEventListener('readystatechange', function() {
 		if (request.readyState == 4){
 			var text = new Object();
@@ -59,7 +61,7 @@
 			}
 		}
 	});
-
+	
 	document.getElementById("btnSend").addEventListener("click", function(){
 		alert("You succesfully sent your massage!");
 		console.log('success');
