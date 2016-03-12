@@ -18,8 +18,6 @@
 	domObjects.push(document.getElementById("projectTwoText"));
 	domObjects.push(document.getElementById("projectThreeTitle"));
 	domObjects.push(document.getElementById("projectThreeText"));
-	
-
 
 
 	document.getElementById("btnSend").addEventListener("click", function(){
