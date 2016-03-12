@@ -20,7 +20,7 @@
 	domObjects.push(document.getElementById("projectThreeText"));
 
 	/* Funtion that responsible creation of XMLHttp object*/
-	function createXMLHttpRequest() {
+	function createXMLHttp() {
 		var request;
 		if(window.ActiveXObject){
 			try {
@@ -42,6 +42,23 @@
 			return request;
 		}
 	}
+
+	var request = createXMLHttp();
+	request.open('GET', '\data.json', true);
+	request.send();
+	request.addEventListener('readystatechange', function() {
+		if (request.readyState == 4){
+			var text = new Object();
+			var index = 0;
+			text = JSON.parse(request.responseText);
+			console.log(text);
+
+			for (key in text) {
+				domObjects[index].innerHTML = text[key];
+				index++;
+			}
+		}
+	});
 
 	document.getElementById("btnSend").addEventListener("click", function(){
 		alert("You succesfully sent your massage!");
