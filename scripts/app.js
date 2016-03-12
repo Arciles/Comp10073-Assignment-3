@@ -19,6 +19,29 @@
 	domObjects.push(document.getElementById("projectThreeTitle"));
 	domObjects.push(document.getElementById("projectThreeText"));
 
+	/* Funtion that responsible creation of XMLHttp object*/
+	function createXMLHttpRequest() {
+		var request;
+		if(window.ActiveXObject){
+			try {
+				request = new ActiveXObject("Microsoft.XMLHTTP");
+			}catch (e) {
+				request = false;
+			}
+		}else {
+			try {
+				request = new XMLHttpRequest();
+			} catch (e) {
+				request = false;
+			}
+		}
+
+		if(!request) {
+			alert("Something went wrong object couldn't created. Try again Later!")
+		}else {
+			return request;
+		}
+	}
 
 	document.getElementById("btnSend").addEventListener("click", function(){
 		alert("You succesfully sent your massage!");
