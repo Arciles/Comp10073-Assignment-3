@@ -44,15 +44,15 @@
 	}
 
 	var request = createXMLHttp();
-	request.open('GET', '\data.json', true);
+	request.open('GET', 'data.json', true);
 	request.send();
 	// This event listener listens state changes in the XMLHttp request object
 	// if the ready state is 4 which means object is ready to read, after that we inject our text into HTML
 	request.addEventListener('readystatechange', function() {
 		if (request.readyState == 4){
-			var text = new Object();
+			//var text = new Object();
 			var index = 0;
-			text = JSON.parse(request.responseText);
+			 var text = JSON.parse(request.responseText);
 			console.log(text);
 
 			for (key in text) {
